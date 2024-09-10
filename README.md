@@ -136,19 +136,13 @@ function initLiveWebTracker(config) {
    - In the **Project Settings** of Firebase, get your project's **firebaseConfig** credentials and replace the placeholders in the `index.html` file.
 
 
-### Step 3: Customize Display (Optional)
-
-You can style the viewer counter by modifying the CSS in your `index.html` file.
-
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-```
-
----
+This project is licensed under the MIT License.
 
 ### Firebase Database Rules:
-
+```
+---
 To ensure that the real-time viewer tracking works properly, you should configure the Firebase Realtime Database rules. Use the following rule for basic public access during development:
 
 ```json
