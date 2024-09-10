@@ -140,12 +140,14 @@ function initLiveWebTracker(config) {
 
 This project is licensed under the MIT License.
 
-### Firebase Database Rules:
+Here's the fixed version of that section of the README:
 
+---
+
+### Firebase Database Rules
 
 To ensure that the real-time viewer tracking works properly, you should configure the Firebase Realtime Database rules. Use the following rule for basic public access during development:
----
-```
+
 ```json
 {
   "rules": {
@@ -156,6 +158,12 @@ To ensure that the real-time viewer tracking works properly, you should configur
   }
 }
 ```
+
+This rule ensures that:
+
+- **Read access**: Anyone can read the current live viewer count from the database (necessary for displaying the count in real-time).
+- **Write access**: Only valid numbers (positive integers) can be written to the database. This prevents non-numeric values from being written and ensures the viewer count remains accurate.
+
 
 This rule ensures that:
 - **Read access** is public.
