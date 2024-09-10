@@ -127,7 +127,7 @@ function initLiveWebTracker(config) {
 ### Firebase Setup Instructions
 
 1. **Create a Firebase Project**:
-   - Go to [Firebase Console](https://console.firebase.google.com/) and create a new project.
+   - Go to https://console.firebase.google.com/ and create a new project.
    
 2. **Enable Realtime Database**:
    - In the Firebase project, enable the **Realtime Database** and set the security rules as public during development (you can restrict it later).
@@ -135,69 +135,6 @@ function initLiveWebTracker(config) {
 3. **Configure Firebase for Your Project**:
    - In the **Project Settings** of Firebase, get your project's **firebaseConfig** credentials and replace the placeholders in the `index.html` file.
 
----
-
-### File 3: `README.md`
-
-```markdown
-# LiveWebTracker
-
-**LiveWebTracker** is a real-time viewer tracking tool for websites. It uses a small JavaScript snippet and Firebase Realtime Database to keep track of the number of visitors currently active on a website and displays the count in real-time.
-
-## Features
-
-- **Real-Time Viewer Count**: Displays the number of active visitors in real time.
-- **Easy Integration**: Simply include a small script in the website’s `<head>` tag.
-- **Firebase-Powered**: Uses Firebase Realtime Database to sync live data instantly.
-- **Lightweight**: The JavaScript code is minimal, ensuring no noticeable performance impact.
-
-## How to Use
-
-### Step 1: Set Up Firebase
-
-1. Go to the [Firebase Console](https://console.firebase.google.com/) and create a new project.
-2. Enable **Realtime Database** for your project.
-3. Copy your Firebase configuration and paste it into the script configuration in the `index.html` file.
-
-```javascript
-firebaseConfig: {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_AUTH_DOMAIN",
-  databaseURL: "YOUR_DATABASE_URL",
-  projectId: "YOUR_PROJECT_ID",
-  storageBucket: "YOUR_STORAGE_BUCKET",
-  messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-  appId: "YOUR_APP_ID"
-}
-```
-
-### Step 2: Add the Script
-
-To integrate LiveWebTracker into your website, add the following lines of code in your website's `<head>` tag, and replace the Firebase config values with your own.
-
-```html
-<!-- Firebase SDKs -->
-<script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-database.js"></script>
-
-<!-- LiveWebTracker Script -->
-<script src="https://yourserver.com/livewebtracker.js"></script>
-
-<!-- Initialize LiveWebTracker -->
-<script>
-  initLiveWebTracker({
-    firebaseConfig: {
-      apiKey: "YOUR_FIREBASE_API_KEY",
-      authDomain: "YOUR_FIREBASE_AUTH_DOMAIN",
-      databaseURL: "YOUR_FIREBASE_DATABASE_URL",
-      projectId: "YOUR_FIREBASE_PROJECT_ID",
-      storageBucket: "YOUR_FIREBASE_STORAGE_BUCKET",
-      messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-      appId: "YOUR_FIREBASE_APP_ID"
-    }
-  });
-</script>
-```
 
 ### Step 3: Customize Display (Optional)
 
