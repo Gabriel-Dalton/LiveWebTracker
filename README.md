@@ -1,6 +1,4 @@
-Here is the updated version of your **README.md** that includes details about how to set up **LiveWebTracker**, the required files, Firebase configuration, and instructions for integration.
-
-### Project Name: **LiveWebTracker**
+### **LiveWebTracker**
 
 ---
 
