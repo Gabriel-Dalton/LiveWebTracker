@@ -164,11 +164,6 @@ This rule ensures that:
 - **Read access**: Anyone can read the current live viewer count from the database (necessary for displaying the count in real-time).
 - **Write access**: Only valid numbers (positive integers) can be written to the database. This prevents non-numeric values from being written and ensures the viewer count remains accurate.
 
-
-This rule ensures that:
-- **Read access** is public.
-- **Write access** only allows valid numerical values (for counting live viewers).
-
 ---
 
 ### Final Steps
