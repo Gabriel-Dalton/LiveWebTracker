@@ -204,15 +204,13 @@ You can style the viewer counter by modifying the CSS in your `index.html` file.
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License.
 
 ```
 
 ---
 
 ### File 4: `LICENSE`
-
-Include a simple MIT License in the repository:
 
 ```text
 MIT License
