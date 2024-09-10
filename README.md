@@ -141,10 +141,11 @@ function initLiveWebTracker(config) {
 This project is licensed under the MIT License.
 
 ### Firebase Database Rules:
-```
----
-To ensure that the real-time viewer tracking works properly, you should configure the Firebase Realtime Database rules. Use the following rule for basic public access during development:
 
+
+To ensure that the real-time viewer tracking works properly, you should configure the Firebase Realtime Database rules. Use the following rule for basic public access during development:
+---
+```
 ```json
 {
   "rules": {
