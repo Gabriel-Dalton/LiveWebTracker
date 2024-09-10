@@ -1,4 +1,6 @@
-### **LiveWebTracker**
+Here is the updated version of your **README.md** that includes details about how to set up **LiveWebTracker**, the required files, Firebase configuration, and instructions for integration.
+
+### Project Name: **LiveWebTracker**
 
 ---
 
@@ -39,9 +41,10 @@ This file demonstrates how to implement LiveWebTracker on a basic webpage.
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>LiveWebTracker Demo</title>
+  
   <!-- Firebase SDKs -->
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-database.js"></script>
   
   <!-- LiveWebTracker Script -->
   <script src="livewebtracker.js"></script>
@@ -68,7 +71,7 @@ This file demonstrates how to implement LiveWebTracker on a basic webpage.
   <p>This is a simple page to show how LiveWebTracker works.</p>
 
   <div class="viewer-count" id="viewer-count">Live Viewers: 0</div>
-  
+
   <!-- Initialize LiveWebTracker -->
   <script>
     initLiveWebTracker({
@@ -89,18 +92,18 @@ This file demonstrates how to implement LiveWebTracker on a basic webpage.
 
 ### File 2: `livewebtracker.js`
 
-This is the main JavaScript file for LiveWebTracker that handles the Firebase integration and real-time viewer counting.
+This is the main JavaScript file for LiveWebTracker that handles Firebase integration and real-time viewer counting.
 
 ```javascript
 function initLiveWebTracker(config) {
   // Initialize Firebase
   firebase.initializeApp(config.firebaseConfig);
-  var database = firebase.database();
+  const database = firebase.database();
 
   // Function to update live viewers count
   function updateLiveViewers(change) {
-    var liveRef = database.ref('liveViewers');
-    liveRef.transaction(function(currentCount) {
+    const liveViewersRef = database.ref('liveViewers');
+    liveViewersRef.transaction((currentCount) => {
       return (currentCount || 0) + change;
     });
   }
@@ -114,7 +117,7 @@ function initLiveWebTracker(config) {
   });
 
   // Display live viewer count in real-time
-  var viewerCountDisplay = document.getElementById('viewer-count');
+  const viewerCountDisplay = document.getElementById('viewer-count');
   database.ref('liveViewers').on('value', function(snapshot) {
     viewerCountDisplay.textContent = 'Live Viewers: ' + (snapshot.val() || 0);
   });
@@ -133,7 +136,7 @@ function initLiveWebTracker(config) {
 
 3. **Configure Firebase for Your Project**:
    - In the **Project Settings** of Firebase, get your project's **firebaseConfig** credentials and replace the placeholders in the `index.html` file.
-   
+
 ---
 
 ### File 3: `README.md`
@@ -176,8 +179,8 @@ To integrate LiveWebTracker into your website, add the following lines of code i
 
 ```html
 <!-- Firebase SDKs -->
-<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-database.js"></script>
 
 <!-- LiveWebTracker Script -->
 <script src="https://yourserver.com/livewebtracker.js"></script>
@@ -204,6 +207,34 @@ You can style the viewer counter by modifying the CSS in your `index.html` file.
 
 ## License
 
-Copyright (c) 2024 Gabriel Dalton
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+```
 
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+---
+
+### Firebase Database Rules:
+
+To ensure that the real-time viewer tracking works properly, you should configure the Firebase Realtime Database rules. Use the following rule for basic public access during development:
+
+```json
+{
+  "rules": {
+    "liveViewers": {
+      ".read": true,
+      ".write": "newData.isNumber() && newData.val() >= 0"
+    }
+  }
+}
+```
+
+This rule ensures that:
+- **Read access** is public.
+- **Write access** only allows valid numerical values (for counting live viewers).
+
+---
+
+### Final Steps
+
+1. **Deploy the Firebase Project**: Ensure your Firebase setup is properly configured.
+2. **Host the Files**: Deploy both the `index.html` and `livewebtracker.js` files to a web server (e.g., GitHub Pages, Netlify).
+3. **Track Live Viewers**: Open multiple instances of the page to see the real-time viewer count increase and decrease.
