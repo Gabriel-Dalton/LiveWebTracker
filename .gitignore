@@ -1,0 +1,2 @@
+# Ignore real Firebase config file so API keys are never committed
+firebase-config.js

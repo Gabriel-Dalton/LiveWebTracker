@@ -1,18 +1,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-analytics.js";
 import { getDatabase, ref, onValue, runTransaction } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-database.js";
-
-// Your Firebase configuration (replace with your actual information)
-const firebaseConfig = {
-  apiKey: "YOUR_INFORMATION",
-  authDomain: "YOUR_INFORMATION",
-  databaseURL: "YOUR_INFORMATION",
-  projectId: "livewebtracker",
-  storageBucket: "YOUR_INFORMATION",
-  messagingSenderId: "YOUR_INFORMATION",
-  appId: "YOUR_INFORMATION",
-  measurementId: "YOUR_INFORMATION"
-};
+import firebaseConfig from "./firebase-config.js";
 
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
