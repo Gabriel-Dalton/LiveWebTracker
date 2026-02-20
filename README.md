@@ -132,8 +132,14 @@ function initLiveWebTracker(config) {
 2. **Enable Realtime Database**:
    - In the Firebase project, enable the **Realtime Database** and set the security rules as public during development (you can restrict it later).
 
-3. **Configure Firebase for Your Project**:
-   - In the **Project Settings** of Firebase, get your project's **firebaseConfig** credentials and replace the placeholders in the `index.html` file.
+3. **Configure Firebase for Your Project** (**required before running the app**):
+   - Copy `firebase-config.example.js` to `firebase-config.js`:
+     ```bash
+     cp firebase-config.example.js firebase-config.js
+     ```
+   - Open `firebase-config.js` and replace the placeholder values with your actual Firebase project credentials from the **Project Settings** in the Firebase console.
+   - `firebase-config.js` is listed in `.gitignore` so your real API keys will never be accidentally committed to version control.
+   - **Note**: If `firebase-config.js` is missing, the browser will throw a module import error. Always ensure this file exists locally before running the application.
 
 
 ## License
